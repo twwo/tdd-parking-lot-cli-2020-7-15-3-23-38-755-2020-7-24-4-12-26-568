@@ -1,75 +1,72 @@
-//package com.oocl.cultivation.test;
-//
-//import com.oocl.cultivation.Car;
-//import com.oocl.cultivation.CarTicket;
-//import com.oocl.cultivation.ParkingBoy;
-//import com.oocl.cultivation.ParkingLot;
-//import org.junit.jupiter.api.Test;
-//
-//import static org.junit.jupiter.api.Assertions.*;
-//
-//public class ParkingBoyTest {
-//
-//    @Test
-//    void should_return_ticket_when_park_by_parkingboy_given_car() {
-//        //given
-//        Car car = new Car();
-//        ParkingBoy parkingBoy = new ParkingBoy();
-//
-//        //when
-//        CarTicket ticket = parkingBoy.park(car);
-//
-//        //then
-//        assertNotNull(ticket);
-//    }
-//
-//    @Test
-//    void should_return_right_car_when_fetch_by_parkingboy_given_car_ticket() {
-//        //given
-//        Car car = new Car();
-//        ParkingBoy parkingBoy = new ParkingBoy();
-//        CarTicket ticket = parkingBoy.park(car);
-//
-//        //when
-//        Car fetchedCar = parkingBoy.fetch(ticket);
-//
-//        //then
-//        assertNotNull(ticket);
-//        assertEquals(car, fetchedCar);
-//    }
-//
-//    @Test
-//    void should_return_right_car_when_fetch_by_parkingboy_given_right_ticket() {
-//        //given
-//        Car car1 = new Car();
-//        Car car2 = new Car();
-//        ParkingBoy parkingBoy = new ParkingBoy();
-//        CarTicket ticketOfCar1 = parkingBoy.park(car1);
-//        CarTicket ticketOfCar2 = parkingBoy.park(car2);
-//
-//        //when
-//        Car fetchedCar1 = parkingBoy.fetch(ticketOfCar1);
-//        Car fetchedCar2 = parkingBoy.fetch(ticketOfCar2);
-//
-//        //then
-//        assertEquals(car1, fetchedCar1);
-//        assertEquals(car2, fetchedCar2);
-//    }
-//
-//    @Test
-//    void should_not_return_car_when_fetch_by_parkingboy_given_wrong_ticket() {
-//        //given
-//        Car car = new Car();
-//        ParkingBoy parkingBoy = new ParkingBoy();
-//        parkingBoy.park(car);
-//
-//        //when
-//        Car wrongTicketFetchedCar = parkingBoy.fetch(new CarTicket());
-//
-//        //then
-//        assertNull(wrongTicketFetchedCar);
-//    }
-//
+package com.oocl.cultivation.test;
+
+import com.oocl.cultivation.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ParkingBoyTest {
+
+    @Test
+    void should_return_ticket_when_park_by_parkingboy_given_car() {
+        //given
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy();
+
+        //when
+        CarTicket ticket = (CarTicket) parkingBoy.park(car).getResult();
+
+        //then
+        assertNotNull(ticket);
+    }
+
+    @Test
+    void should_return_right_car_when_fetch_by_parkingboy_given_car_ticket() {
+        //given
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy();
+        CarTicket ticket = (CarTicket) parkingBoy.park(car).getResult();
+
+        //when
+        Car fetchedCar = (Car) parkingBoy.fetch(ticket).getResult();
+
+        //then
+        assertNotNull(ticket);
+        assertEquals(car, fetchedCar);
+    }
+
+    @Test
+    void should_return_right_car_when_fetch_by_parkingboy_given_right_ticket() {
+        //given
+        Car car1 = new Car();
+        Car car2 = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy();
+        CarTicket ticketOfCar1 = (CarTicket) parkingBoy.park(car1).getResult();
+        CarTicket ticketOfCar2 = (CarTicket) parkingBoy.park(car2).getResult();
+
+        //when
+        Car fetchedCar1 = (Car) parkingBoy.fetch(ticketOfCar1).getResult();
+        Car fetchedCar2 = (Car) parkingBoy.fetch(ticketOfCar2).getResult();
+
+        //then
+        assertEquals(car1, fetchedCar1);
+        assertEquals(car2, fetchedCar2);
+    }
+
+    @Test
+    void should_return_wrong_message_when_fetch_by_parkingboy_given_wrong_ticket() {
+        //given
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy();
+        parkingBoy.park(car);
+
+        //when
+        String wrongMessage = parkingBoy.fetch(new CarTicket()).getMessage();
+
+        //then
+        assertEquals(FetchOrParkMessage.UNRECOGNIZED_TICKET.toString(), wrongMessage);
+    }
+
 //    @Test
 //    void should_not_return_car_when_fetch_by_parkingboy_given_no_ticket() {
 //        //given
@@ -114,18 +111,4 @@
 //        //then
 //        assertNull(ticket);
 //    }
-//
-//    @Test
-//    void should_return_wrong_ticket_message_when_fetch_by_parkingboy_given_wrong_ticket() {
-//        //given
-//        Car car = new Car();
-//        ParkingBoy parkingBoy = new ParkingBoy();
-//        parkingBoy.park(car);
-//
-//        //when
-//        Car wrongTicketFetchedCar = parkingBoy.fetch(new CarTicket());
-//
-//        //then
-//
-//    }
-//}
+}

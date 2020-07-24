@@ -22,12 +22,21 @@ public class ParkingLot {
         }
         CarTicket ticket = new CarTicket();
         parkingRooms.put(ticket, car);
-        return new ReturnResult(ticket, "");
+        return new ReturnResult(ticket, FetchOrParkMessage.SUCCESS.toString());
     }
 
     public ReturnResult fetch(CarTicket ticket) {
         Car fetchedCar = parkingRooms.get(ticket);
         parkingRooms.remove(ticket, fetchedCar);
-        return new ReturnResult(fetchedCar, "");
+        return new ReturnResult(fetchedCar, FetchOrParkMessage.SUCCESS.toString());
+    }
+
+    public boolean isTicketValid(CarTicket ticket) {
+        boolean isValid = true;
+        if (!parkingRooms.containsKey(ticket)) {
+            isValid = false;
+        }
+
+        return isValid;
     }
 }

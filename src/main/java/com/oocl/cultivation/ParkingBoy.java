@@ -16,6 +16,9 @@ public class ParkingBoy {
     }
 
     public ReturnResult fetch(CarTicket ticket) {
-        return parkingLot.fetch(ticket);
+        if (parkingLot.isTicketValid(ticket)) {
+            return parkingLot.fetch(ticket);
+        }
+        return new ReturnResult(null, FetchOrParkMessage.UNRECOGNIZED_TICKET.toString());
     }
 }
