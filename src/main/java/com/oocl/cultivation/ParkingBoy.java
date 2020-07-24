@@ -12,7 +12,13 @@ public class ParkingBoy {
     }
 
     public ReturnResult park(Car car) {
-        return parkingLot.park(car);
+        ReturnResult returnResult = new ReturnResult();
+        if (parkingLot.isParkingLotFull()) {
+            returnResult.setMessage(FetchOrParkMessage.NO_PARKING_POSITION.toString());
+        } else {
+            returnResult = parkingLot.park(car);
+        }
+        return returnResult;
     }
 
     public ReturnResult fetch(CarTicket ticket) {
@@ -21,8 +27,9 @@ public class ParkingBoy {
             returnResult.setMessage(FetchOrParkMessage.NO_TICKET.toString());
         } else if (!parkingLot.isTicketValid(ticket)) {
             returnResult.setMessage(FetchOrParkMessage.UNRECOGNIZED_TICKET.toString());
+        } else {
+            returnResult = parkingLot.fetch(ticket);
         }
-        returnResult.setResult(parkingLot.fetch(ticket).getResult());
         return returnResult;
     }
 }

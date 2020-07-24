@@ -18,7 +18,7 @@ public class ParkingLot {
 
     public ReturnResult park(Car car) {
         if (parkingRooms.size() == capacity) {
-            return new ReturnResult(null, "");
+            return new ReturnResult(null, FetchOrParkMessage.NO_PARKING_POSITION.toString());
         }
         CarTicket ticket = new CarTicket();
         parkingRooms.put(ticket, car);
@@ -36,7 +36,14 @@ public class ParkingLot {
         if (!parkingRooms.containsKey(ticket)) {
             isValid = false;
         }
-
         return isValid;
+    }
+
+    public boolean isParkingLotFull() {
+        boolean isFull = false;
+        if (parkingRooms.size() == capacity) {
+            isFull = true;
+        }
+        return isFull;
     }
 }
