@@ -1,28 +1,32 @@
 package com.oocl.cultivation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingBoy {
-    private ParkingLot parkingLot;
+    private List<ParkingLot> parkingLots = new ArrayList<>();
 
     public ParkingBoy() {
-        parkingLot = new ParkingLot();
+        parkingLots = new ArrayList<>();
+        parkingLots.add(new ParkingLot());
     }
 
     public ParkingBoy(ParkingLot parkingLot) {
-        this.parkingLot = parkingLot;
+        parkingLots.add(parkingLot);
     }
 
     public ParkingBoy(List<ParkingLot> parkingLots) {
-
+        this.parkingLots.addAll(parkingLots);
     }
 
     public ReturnResult park(Car car) {
         ReturnResult returnResult = new ReturnResult();
-        if (parkingLot.isParkingLotFull()) {
-            returnResult.setMessage(FetchOrParkMessage.NO_PARKING_POSITION.toString());
-        } else {
-            returnResult = parkingLot.park(car);
+        returnResult.setMessage(FetchOrParkMessage.NO_PARKING_POSITION.toString());
+        for (ParkingLot parkingLot : parkingLots) {
+            if (!parkingLot.isParkingLotFull()) {
+                returnResult = parkingLot.park(car);
+                break;
+            }
         }
         return returnResult;
     }
@@ -31,10 +35,14 @@ public class ParkingBoy {
         ReturnResult returnResult = new ReturnResult();
         if (ticket == null) {
             returnResult.setMessage(FetchOrParkMessage.NO_TICKET.toString());
-        } else if (!parkingLot.isTicketValid(ticket)) {
-            returnResult.setMessage(FetchOrParkMessage.UNRECOGNIZED_TICKET.toString());
         } else {
-            returnResult = parkingLot.fetch(ticket);
+            returnResult.setMessage(FetchOrParkMessage.UNRECOGNIZED_TICKET.toString());
+            for (ParkingLot parkingLot : parkingLots) {
+                if (parkingLot.isTicketValid(ticket)) {
+                    returnResult = parkingLot.fetch(ticket);
+                    break;
+                }
+            }
         }
         return returnResult;
     }
