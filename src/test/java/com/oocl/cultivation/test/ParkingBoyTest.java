@@ -88,4 +88,21 @@ public class ParkingBoyTest {
         //then
         assertNull(wrongTicketFetchedCar);
     }
+
+    @Test
+    void should_not_return_car_when_fetch_by_parkingboy_given_expired_ticket() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy();
+        CarTicket ticket = parkingBoy.park(car);
+
+        //when
+        Car firstFetchedCar = parkingBoy.fetch(ticket);
+        Car secondFetchedCar = parkingBoy.fetch(ticket);
+        boolean result = firstFetchedCar.equals(secondFetchedCar);
+
+        //then
+        assertFalse(result);
+    }
 }
