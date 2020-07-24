@@ -18,16 +18,16 @@ public class ParkingLot {
 
     public ReturnResult park(Car car) {
         if (parkingRooms.size() == capacity) {
-            return null;
+            return new ReturnResult(null, "");
         }
         CarTicket ticket = new CarTicket();
         parkingRooms.put(ticket, car);
-        return new ReturnResult(ticket, "success");
+        return new ReturnResult(ticket, "");
     }
 
     public ReturnResult fetch(CarTicket ticket) {
         Car fetchedCar = parkingRooms.get(ticket);
         parkingRooms.remove(ticket, fetchedCar);
-        return new ReturnResult(fetchedCar, "success");
+        return new ReturnResult(fetchedCar, "");
     }
 }
