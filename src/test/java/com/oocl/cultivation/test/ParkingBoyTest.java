@@ -13,7 +13,6 @@ public class ParkingBoyTest {
     @Test
     void should_return_ticket_when_park_by_parkingboy_given_car() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
         ParkingBoy parkingBoy = new ParkingBoy();
 
@@ -28,8 +27,7 @@ public class ParkingBoyTest {
     void should_return_right_car_when_fetch_by_parkingboy_given_car_ticket() {
         //given
         Car car = new Car();
-        ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy();
         CarTicket ticket = parkingBoy.park(car);
 
         //when
@@ -43,7 +41,6 @@ public class ParkingBoyTest {
     @Test
     void should_return_right_car_when_fetch_by_parkingboy_given_right_ticket() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
         Car car1 = new Car();
         Car car2 = new Car();
         ParkingBoy parkingBoy = new ParkingBoy();
@@ -62,7 +59,6 @@ public class ParkingBoyTest {
     @Test
     void should_not_return_car_when_fetch_by_parkingboy_given_wrong_ticket() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
         ParkingBoy parkingBoy = new ParkingBoy();
         parkingBoy.park(car);
@@ -77,7 +73,6 @@ public class ParkingBoyTest {
     @Test
     void should_not_return_car_when_fetch_by_parkingboy_given_no_ticket() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
         ParkingBoy parkingBoy = new ParkingBoy();
         parkingBoy.park(car);
@@ -92,7 +87,6 @@ public class ParkingBoyTest {
     @Test
     void should_not_return_car_when_fetch_by_parkingboy_given_expired_ticket() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
         ParkingBoy parkingBoy = new ParkingBoy();
         CarTicket ticket = parkingBoy.park(car);

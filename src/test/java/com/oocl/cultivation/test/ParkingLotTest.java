@@ -37,5 +37,4 @@ public class ParkingLotTest {
         assertNotNull(ticket);
         assertEquals(car, fetchedCar);
     }
-
 }
