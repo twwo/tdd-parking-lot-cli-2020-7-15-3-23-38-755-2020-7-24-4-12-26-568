@@ -105,4 +105,19 @@ public class ParkingBoyTest {
         //then
         assertFalse(result);
     }
+
+    @Test
+    void should_not_return_ticket_when_park_by_parkingboy_and_parkinglot_is_full_given_car() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        for (int i = 0; i < 10; i++) {
+            parkingBoy.park(new Car());
+        }
+
+        //when
+        CarTicket ticket = parkingBoy.park(new Car());
+
+        //then
+        assertNull(ticket);
+    }
 }
