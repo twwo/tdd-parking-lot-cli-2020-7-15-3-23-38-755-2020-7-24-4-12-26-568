@@ -16,13 +16,14 @@ public class ParkingLot {
         this.capacity = 10;
     }
 
-    public CarTicket park(Car car) {
+    public ReturnResult park(Car car) {
         if (parkingRooms.size() == capacity) {
             return null;
         }
         CarTicket ticket = new CarTicket();
         parkingRooms.put(ticket, car);
-        return ticket;
+        ReturnResult returnResult = new ReturnResult(ticket, "success");
+        return returnResult;
     }
 
     public Car fetch(CarTicket ticket) {
