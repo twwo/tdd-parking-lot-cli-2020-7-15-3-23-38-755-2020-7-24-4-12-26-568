@@ -46,4 +46,8 @@ public class ParkingLot {
         }
         return isFull;
     }
+
+    public int getNowCarAmount() {
+        return capacity;
+    }
 }

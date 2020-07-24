@@ -3,6 +3,8 @@ package com.oocl.cultivation.test;
 import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingBoyTest {
@@ -110,5 +112,23 @@ public class ParkingBoyTest {
 
         //then
         assertEquals(FetchOrParkMessage.NO_PARKING_POSITION.toString(), wrongMessage);
+    }
+
+    @Test
+    void should_park_car_to_second_parkinglot_when_first_parkinglot_is_full_given_car() {
+        //given
+        ParkingLot parkingLot1 = new ParkingLot(5);
+        ParkingLot parkingLot2 = new ParkingLot(5);
+        ParkingLot[] parkingLots = {parkingLot1, parkingLot2};
+        ParkingBoy parkingBoy = new ParkingBoy(Arrays.asList(parkingLots));
+
+        //when
+        for (int i = 0; i < 6; i++) {
+            parkingBoy.park(new Car());
+        }
+
+        //then
+        assertNotEquals(0, parkingLot1.getNowCarAmount());
+        assertNotEquals(0, parkingLot2.getNowCarAmount());
     }
 }
