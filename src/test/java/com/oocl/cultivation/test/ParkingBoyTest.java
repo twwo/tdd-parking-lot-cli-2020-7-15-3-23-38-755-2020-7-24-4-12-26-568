@@ -67,20 +67,20 @@ public class ParkingBoyTest {
         assertEquals(FetchOrParkMessage.UNRECOGNIZED_TICKET.toString(), wrongMessage);
     }
 
-//    @Test
-//    void should_not_return_car_when_fetch_by_parkingboy_given_no_ticket() {
-//        //given
-//        Car car = new Car();
-//        ParkingBoy parkingBoy = new ParkingBoy();
-//        parkingBoy.park(car);
-//
-//        //when
-//        Car wrongTicketFetchedCar = parkingBoy.fetch(null);
-//
-//        //then
-//        assertNull(wrongTicketFetchedCar);
-//    }
-//
+    @Test
+    void should_return_wrong_message_when_fetch_by_parkingboy_given_no_ticket() {
+        //given
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy();
+        parkingBoy.park(car);
+
+        //when
+        String wrongMessage = parkingBoy.fetch(null).getMessage();
+
+        //then
+        assertEquals(FetchOrParkMessage.NO_TICKET.toString(), wrongMessage);
+    }
+
 //    @Test
 //    void should_not_return_car_when_fetch_by_parkingboy_given_expired_ticket() {
 //        //given

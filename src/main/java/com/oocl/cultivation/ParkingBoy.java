@@ -16,9 +16,13 @@ public class ParkingBoy {
     }
 
     public ReturnResult fetch(CarTicket ticket) {
-        if (parkingLot.isTicketValid(ticket)) {
-            return parkingLot.fetch(ticket);
+        ReturnResult returnResult = new ReturnResult();
+        if (ticket == null) {
+            returnResult.setMessage(FetchOrParkMessage.NO_TICKET.toString());
+        } else if (!parkingLot.isTicketValid(ticket)) {
+            returnResult.setMessage(FetchOrParkMessage.UNRECOGNIZED_TICKET.toString());
         }
-        return new ReturnResult(null, FetchOrParkMessage.UNRECOGNIZED_TICKET.toString());
+        returnResult.setResult(parkingLot.fetch(ticket).getResult());
+        return returnResult;
     }
 }

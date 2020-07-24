@@ -5,6 +5,11 @@ public class ReturnResult {
 
     private String message;
 
+    public ReturnResult() {
+        this.result = null;
+        this.message = FetchOrParkMessage.SUCCESS.toString();
+    }
+
     public ReturnResult(ReturnThing result, String wrongMessage) {
         this.result = result;
         this.message = wrongMessage;
@@ -14,7 +19,15 @@ public class ReturnResult {
         return result;
     }
 
+    public void setResult(ReturnThing result) {
+        this.result = result;
+    }
+
     public String getMessage() {
         return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
