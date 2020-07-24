@@ -9,33 +9,35 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class ParkingLotTest {
+public class ParkingBoyTest {
+
     @Test
-    void should_return_ticket_when_park_given_car() {
+    void should_return_ticket_when_park_by_parkingboy_given_car() {
         //given
-        Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy();
 
         //when
-        CarTicket ticket = parkingLot.park(car);
+        CarTicket ticket = parkingBoy.park(car);
 
         //then
         assertNotNull(ticket);
     }
 
     @Test
-    void should_return_right_car_when_fetch_given_car_ticket() {
+    void should_return_right_car_when_fetch_by_parkingboy_given_car_ticket() {
         //given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
-        CarTicket ticket = parkingLot.park(car);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        CarTicket ticket = parkingBoy.park(car);
 
         //when
-        Car fetchedCar = parkingLot.fetch(ticket);
+        Car fetchedCar = parkingBoy.fetch(ticket);
 
         //then
         assertNotNull(ticket);
         assertEquals(car, fetchedCar);
     }
-
 }
