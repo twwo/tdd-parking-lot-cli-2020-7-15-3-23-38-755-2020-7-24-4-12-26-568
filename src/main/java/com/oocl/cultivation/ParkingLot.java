@@ -22,13 +22,12 @@ public class ParkingLot {
         }
         CarTicket ticket = new CarTicket();
         parkingRooms.put(ticket, car);
-        ReturnResult returnResult = new ReturnResult(ticket, "success");
-        return returnResult;
+        return new ReturnResult(ticket, "success");
     }
 
-    public Car fetch(CarTicket ticket) {
+    public ReturnResult fetch(CarTicket ticket) {
         Car fetchedCar = parkingRooms.get(ticket);
         parkingRooms.remove(ticket, fetchedCar);
-        return fetchedCar;
+        return new ReturnResult(fetchedCar, "success");
     }
 }

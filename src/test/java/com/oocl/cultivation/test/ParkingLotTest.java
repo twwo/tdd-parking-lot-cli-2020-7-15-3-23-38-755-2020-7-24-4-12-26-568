@@ -1,9 +1,6 @@
 package com.oocl.cultivation.test;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.CarTicket;
-import com.oocl.cultivation.ParkingBoy;
-import com.oocl.cultivation.ParkingLot;
+import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,10 +24,10 @@ public class ParkingLotTest {
         //given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
-        CarTicket ticket = parkingLot.park(car);
+        CarTicket ticket = (CarTicket) parkingLot.park(car).getResult();
 
         //when
-        Car fetchedCar = parkingLot.fetch(ticket);
+        Car fetchedCar = (Car) parkingLot.fetch(ticket).getResult();
 
         //then
         assertNotNull(ticket);
