@@ -4,10 +4,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ParkingLot {
-    Map<CarTicket, Car> parkingRooms = new HashMap<>();
+    private Map<CarTicket, Car> parkingRooms = new HashMap<>();
+
+    private int capacity;
+
+    public ParkingLot(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public ParkingLot() {
+        this.capacity = 10;
+    }
 
     public CarTicket park(Car car) {
-        if (parkingRooms.size() == 10) {
+        if (parkingRooms.size() == capacity) {
             return null;
         }
         CarTicket ticket = new CarTicket();
