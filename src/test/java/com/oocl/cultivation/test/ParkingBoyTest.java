@@ -123,7 +123,7 @@ public class ParkingBoyTest {
         ParkingBoy parkingBoy = new ParkingBoy(Arrays.asList(parkingLots));
 
         //when
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             parkingBoy.park(new Car());
         }
 
