@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ParkingLot {
+    private String name = "defaultParkingLot";
     private Map<CarTicket, Car> parkingRooms = new HashMap<>();
-
     private int capacity;
 
     public ParkingLot(int capacity) {
@@ -14,6 +14,14 @@ public class ParkingLot {
 
     public ParkingLot() {
         this.capacity = 10;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public ReturnResult park(Car car) {
@@ -41,13 +49,18 @@ public class ParkingLot {
 
     public boolean isParkingLotFull() {
         boolean isFull = false;
-        if (parkingRooms.size() == capacity) {
+        if (getNowRemainRoom() == 0) {
             isFull = true;
         }
         return isFull;
     }
 
-    public int getNowCarAmount() {
-        return capacity;
+    public int getNowRemainRoom() {
+        return capacity - parkingRooms.size();
+    }
+
+    @Override
+    public String toString() {
+        return "name: " + name + ", remainRooms: " + getNowRemainRoom() + ";\n";
     }
 }

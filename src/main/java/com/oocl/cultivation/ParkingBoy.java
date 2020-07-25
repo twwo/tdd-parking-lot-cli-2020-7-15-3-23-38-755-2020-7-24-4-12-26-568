@@ -19,6 +19,10 @@ public class ParkingBoy {
         this.parkingLots.addAll(parkingLots);
     }
 
+    public List<ParkingLot> getParkingLots() {
+        return parkingLots;
+    }
+
     public ReturnResult park(Car car) {
         ReturnResult returnResult = new ReturnResult();
         returnResult.setMessage(FetchOrParkMessage.NO_PARKING_POSITION.toString());

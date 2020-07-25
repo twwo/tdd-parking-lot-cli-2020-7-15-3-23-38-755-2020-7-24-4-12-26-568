@@ -128,7 +128,7 @@ public class ParkingBoyTest {
         }
 
         //then
-        assertNotEquals(0, parkingLot1.getNowCarAmount());
-        assertNotEquals(0, parkingLot2.getNowCarAmount());
+        assertNotEquals(5, parkingLot1.getNowRemainRoom());
+        assertNotEquals(5, parkingLot2.getNowRemainRoom());
     }
 }
