@@ -5,10 +5,6 @@ import java.util.List;
 public class SmartParkingBoy extends ParkingBoy {
     private ParkingLot maxRoomParkingLot;
 
-    public ParkingLot getMaxRoomParkingLot() {
-        return maxRoomParkingLot;
-    }
-
     public SmartParkingBoy() {
         maxRoomParkingLot = getMaxRemainRoomParkingLot();
     }
@@ -23,6 +19,14 @@ public class SmartParkingBoy extends ParkingBoy {
         maxRoomParkingLot = getMaxRemainRoomParkingLot();
     }
 
+    public ParkingLot getMaxRoomParkingLot() {
+        return maxRoomParkingLot;
+    }
+
+    public void setMaxRoomParkingLot(ParkingLot maxRoomParkingLot) {
+        this.maxRoomParkingLot = maxRoomParkingLot;
+    }
+
     @Override
     public ReturnResult park(Car car) {
         ReturnResult returnResult = new ReturnResult();
@@ -33,7 +37,7 @@ public class SmartParkingBoy extends ParkingBoy {
         return returnResult;
     }
 
-    private ParkingLot getMaxRemainRoomParkingLot() {
+    public ParkingLot getMaxRemainRoomParkingLot() {
         maxRoomParkingLot = super.getParkingLots().get(0);
         for (ParkingLot parkingLot : super.getParkingLots()) {
             if (parkingLot.getNowRemainRoom() > maxRoomParkingLot.getNowRemainRoom()) {
