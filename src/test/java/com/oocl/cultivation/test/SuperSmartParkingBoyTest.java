@@ -31,7 +31,16 @@ public class SuperSmartParkingBoyTest {
         }
 
         //then
-        assertEquals("", maxRoomParkingLotList.toString());
+        assertEquals("name: parkingLotWith5Room, remainRooms: 4;\n" +
+                "name: parkingLotWith10Room, remainRooms: 9;\n" +
+                "name: parkingLotWith15Room, remainRooms: 14;\n" +
+                "name: parkingLotWith15Room, remainRooms: 13;\n" +
+                "name: parkingLotWith10Room, remainRooms: 8;\n" +
+                "name: parkingLotWith15Room, remainRooms: 12;\n" +
+                "name: parkingLotWith5Room, remainRooms: 3;\n" +
+                "name: parkingLotWith10Room, remainRooms: 7;\n" +
+                "name: parkingLotWith15Room, remainRooms: 11;\n" +
+                "name: parkingLotWith15Room, remainRooms: 10;\n", maxRoomParkingLotList.toString());
 
     }
 }

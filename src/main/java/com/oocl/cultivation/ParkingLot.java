@@ -59,6 +59,10 @@ public class ParkingLot {
         return capacity - parkingRooms.size();
     }
 
+    public double getRemainRate() {
+        return (double) getNowRemainRoom() / (double) capacity;
+    }
+
     @Override
     public String toString() {
         return "name: " + name + ", remainRooms: " + getNowRemainRoom() + ";\n";
