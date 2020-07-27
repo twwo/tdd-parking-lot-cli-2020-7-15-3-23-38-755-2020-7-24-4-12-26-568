@@ -5,4 +5,6 @@ public interface Parkable {
 
     ReturnResult fetch(CarTicket carTicket);
 
+    boolean isFull();
+
 }

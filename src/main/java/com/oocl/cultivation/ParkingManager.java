@@ -11,6 +11,11 @@ public class ParkingManager {
     }
 
     public ReturnResult park(Car car) {
-        return null;
+        return parkables
+                .stream()
+                .filter(parkable -> !parkable.isFull())
+                .findFirst()
+                .orElse(parkables.get(0))
+                .park(car);
     }
 }

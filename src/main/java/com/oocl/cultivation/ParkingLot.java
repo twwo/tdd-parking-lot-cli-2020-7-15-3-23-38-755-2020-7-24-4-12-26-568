@@ -29,6 +29,11 @@ public class ParkingLot {
         return new ReturnResult(fetchedCar, FetchOrParkMessage.SUCCESS.toString());
     }
 
+    @Override
+    public boolean isFull() {
+        return isParkingLotFull();
+    }
+
     public boolean isTicketValid(CarTicket ticket) {
         boolean isValid = true;
         if (!parkingRooms.containsKey(ticket)) {

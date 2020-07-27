@@ -49,4 +49,14 @@ public class ParkingBoy implements Parkable{
         }
         return returnResult;
     }
+
+    @Override
+    public boolean isFull() {
+        for (ParkingLot parkingLot : parkingLots) {
+            if (!parkingLot.isParkingLotFull()) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
