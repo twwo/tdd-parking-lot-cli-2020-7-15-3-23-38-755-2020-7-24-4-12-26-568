@@ -3,7 +3,7 @@ package com.oocl.cultivation;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParkingBoy {
+public class ParkingBoy implements Parkable{
     private List<ParkingLot> parkingLots = new ArrayList<>();
 
     public ParkingBoy() {
@@ -23,6 +23,7 @@ public class ParkingBoy {
         return parkingLots;
     }
 
+    @Override
     public ReturnResult park(Car car) {
         ReturnResult returnResult = new ReturnResult();
         returnResult.setMessage(FetchOrParkMessage.NO_PARKING_POSITION.toString());
@@ -35,6 +36,7 @@ public class ParkingBoy {
         return returnResult;
     }
 
+    @Override
     public ReturnResult fetch(CarTicket ticket) {
         ReturnResult returnResult = new ReturnResult();
         if (ticket == null) {
