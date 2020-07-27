@@ -78,4 +78,18 @@ public class ParkingManagerTest {
         //then
         assertEquals(FetchOrParkMessage.UNRECOGNIZED_TICKET.toString(), wrongMessage);
     }
+
+    @Test
+    void should_return_wrong_message_when_tell_parkingboy_to_park_the_car_given_expired_ticket() {
+        //given
+        ParkingManager parkingManager = new ParkingManager(new ParkingBoy(new ParkingLot(1)));
+
+        //when
+        CarTicket carTicket = (CarTicket) parkingManager.park(new Car()).getResult();
+        parkingManager.fetch(carTicket);
+        String wrongMessage = parkingManager.fetch(carTicket).getMessage();
+
+        //then
+        assertEquals(FetchOrParkMessage.UNRECOGNIZED_TICKET.toString(), wrongMessage);
+    }
 }
