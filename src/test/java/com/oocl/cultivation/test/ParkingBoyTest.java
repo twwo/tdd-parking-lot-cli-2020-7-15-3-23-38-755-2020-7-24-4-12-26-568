@@ -117,8 +117,8 @@ public class ParkingBoyTest {
     @Test
     void should_park_car_to_second_parkinglot_when_first_parkinglot_is_full_given_car() {
         //given
-        ParkingLot parkingLot1 = new ParkingLot(5);
-        ParkingLot parkingLot2 = new ParkingLot(5);
+        ParkingLot parkingLot1 = new ParkingLot(1);
+        ParkingLot parkingLot2 = new ParkingLot(2);
         ParkingLot[] parkingLots = {parkingLot1, parkingLot2};
         ParkingBoy parkingBoy = new ParkingBoy(Arrays.asList(parkingLots));
 
