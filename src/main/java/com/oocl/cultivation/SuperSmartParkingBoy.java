@@ -27,8 +27,6 @@ public class SuperSmartParkingBoy extends ParkingBoy{
     public ParkingLot getMaxRemainRoomParkingLot() {
         maxRoomParkingLot = super.getParkingLots().get(0);
         for (ParkingLot parkingLot : super.getParkingLots()) {
-            double rate = parkingLot.getRemainRate();
-            double maxRate = maxRoomParkingLot.getRemainRate();
             if (parkingLot.getRemainRate() > maxRoomParkingLot.getRemainRate()) {
                 maxRoomParkingLot = parkingLot;
             }
