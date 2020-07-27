@@ -41,4 +41,16 @@ public class ParkingManagerTest {
         //then
         assertNotNull(CarTicket);
     }
+
+    @Test
+    void should_specify_supersmartparkingboy_park_the_car_when_park_given_car() {
+        //given
+        ParkingManager parkingManager = new ParkingManager(new SuperSmartParkingBoy(new ParkingLot(1)));
+
+        //when
+        CarTicket CarTicket = (CarTicket) parkingManager.park(new Car()).getResult();
+
+        //then
+        assertNotNull(CarTicket);
+    }
 }
