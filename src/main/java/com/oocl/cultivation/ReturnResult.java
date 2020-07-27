@@ -1,7 +1,7 @@
 package com.oocl.cultivation;
 
 public class ReturnResult {
-    private ReturnThing result;
+    private Object result;
 
     private String message;
 
@@ -10,17 +10,13 @@ public class ReturnResult {
         this.message = FetchOrParkMessage.SUCCESS.toString();
     }
 
-    public ReturnResult(ReturnThing result, String wrongMessage) {
+    public ReturnResult(Object result, String wrongMessage) {
         this.result = result;
         this.message = wrongMessage;
     }
 
-    public ReturnThing getResult() {
+    public Object getResult() {
         return result;
-    }
-
-    public void setResult(ReturnThing result) {
-        this.result = result;
     }
 
     public String getMessage() {

@@ -1,4 +1,4 @@
 package com.oocl.cultivation;
 
-public class CarTicket implements ReturnThing {
+public class CarTicket{
 }
