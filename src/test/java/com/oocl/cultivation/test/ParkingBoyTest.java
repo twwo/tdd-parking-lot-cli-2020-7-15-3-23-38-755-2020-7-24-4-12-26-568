@@ -102,10 +102,9 @@ public class ParkingBoyTest {
     @Test
     void should_return_wrong_message_when_park_by_parkingboy_and_parkinglot_is_full_given_car() {
         //given
-        ParkingBoy parkingBoy = new ParkingBoy();
-        for (int i = 0; i < 10; i++) {
-            parkingBoy.park(new Car());
-        }
+        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        parkingBoy.park(new Car());
 
         //when
         String wrongMessage = parkingBoy.park(new Car()).getMessage();
