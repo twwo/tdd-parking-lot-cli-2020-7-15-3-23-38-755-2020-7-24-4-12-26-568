@@ -3,6 +3,7 @@ package com.oocl.cultivation.test;
 import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ParkingManagerTest {
@@ -52,5 +53,17 @@ public class ParkingManagerTest {
 
         //then
         assertNotNull(CarTicket);
+    }
+
+    @Test
+    void should_return_wrong_message_when_tell_parkingboy_to_park_the_car_given_car() {
+        //given
+        ParkingManager parkingManager = new ParkingManager(new ParkingBoy(new ParkingLot(1)));
+
+        //when
+        String wrongMessage = parkingManager.fetch(null).getMessage();
+
+        //then
+        assertEquals(FetchOrParkMessage.NO_TICKET.toString(), wrongMessage);
     }
 }

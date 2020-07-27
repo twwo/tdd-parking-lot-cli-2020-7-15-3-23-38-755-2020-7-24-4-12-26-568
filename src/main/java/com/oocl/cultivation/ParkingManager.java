@@ -18,4 +18,8 @@ public class ParkingManager {
                 .orElse(parkables.get(0))
                 .park(car);
     }
+
+    public ReturnResult fetch(CarTicket carTicket) {
+        return null;
+    }
 }
