@@ -14,14 +14,6 @@ public class SmartParkingBoy extends ParkingBoy {
         maxRoomParkingLot = getMaxRemainRoomParkingLot();
     }
 
-    public ParkingLot getMaxRoomParkingLot() {
-        return maxRoomParkingLot;
-    }
-
-    public void setMaxRoomParkingLot(ParkingLot maxRoomParkingLot) {
-        this.maxRoomParkingLot = maxRoomParkingLot;
-    }
-
     @Override
     public ReturnResult park(Car car) {
         ReturnResult returnResult = new ReturnResult();
