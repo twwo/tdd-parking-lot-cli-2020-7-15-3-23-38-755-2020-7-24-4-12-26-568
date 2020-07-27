@@ -9,12 +9,7 @@ public class SuperSmartParkingBoy extends ParkingBoy{
         maxRoomParkingLot = getMaxRemainRoomParkingLot();
     }
 
-    public SuperSmartParkingBoy(ParkingLot parkingLot) {
-        super(parkingLot);
-        maxRoomParkingLot = getMaxRemainRoomParkingLot();
-    }
-
-    public SuperSmartParkingBoy(List<ParkingLot> parkingLots) {
+    public SuperSmartParkingBoy(ParkingLot...parkingLots) {
         super(parkingLots);
         maxRoomParkingLot = getMaxRemainRoomParkingLot();
     }

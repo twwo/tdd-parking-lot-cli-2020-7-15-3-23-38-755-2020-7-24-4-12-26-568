@@ -118,8 +118,7 @@ public class ParkingBoyTest {
         //given
         ParkingLot parkingLotWith1Room = new ParkingLot(1);
         ParkingLot parkingLot2With2Room = new ParkingLot(2);
-        ParkingLot[] parkingLots = {parkingLotWith1Room, parkingLot2With2Room};
-        ParkingBoy parkingBoy = new ParkingBoy(Arrays.asList(parkingLots));
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLotWith1Room, parkingLot2With2Room);
 
         //when
         for (int i = 0; i < 5; i++) {

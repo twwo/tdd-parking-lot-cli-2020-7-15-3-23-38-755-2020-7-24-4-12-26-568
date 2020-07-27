@@ -1,22 +1,19 @@
 package com.oocl.cultivation;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ParkingBoy implements Parkable{
-    private List<ParkingLot> parkingLots = new ArrayList<>();
+    private List<ParkingLot> parkingLots;
 
     public ParkingBoy() {
         parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
     }
 
-    public ParkingBoy(ParkingLot parkingLot) {
-        parkingLots.add(parkingLot);
-    }
-
-    public ParkingBoy(List<ParkingLot> parkingLots) {
-        this.parkingLots.addAll(parkingLots);
+    public ParkingBoy(ParkingLot... parkingLots) {
+        this.parkingLots = Arrays.asList(parkingLots);
     }
 
     public List<ParkingLot> getParkingLots() {

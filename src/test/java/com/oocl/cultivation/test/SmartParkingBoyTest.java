@@ -15,9 +15,7 @@ public class SmartParkingBoyTest {
         //given
         ParkingLot parkingLotWith1Room = new ParkingLot(1);
         ParkingLot parkingLotWith2Room = new ParkingLot(2);
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(
-                Arrays.asList(parkingLotWith1Room, parkingLotWith2Room)
-        );
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotWith1Room, parkingLotWith2Room);
 
         //when
         smartParkingBoy.park(new Car());

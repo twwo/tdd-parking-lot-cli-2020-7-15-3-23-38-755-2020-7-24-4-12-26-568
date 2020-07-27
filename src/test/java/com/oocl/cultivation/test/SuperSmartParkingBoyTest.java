@@ -15,9 +15,7 @@ public class SuperSmartParkingBoyTest {
         //given
         ParkingLot parkingLotWith5Room = new ParkingLot(5);
         ParkingLot parkingLotWith10Room = new ParkingLot(10);
-        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(
-                Arrays.asList(parkingLotWith5Room, parkingLotWith10Room)
-        );
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLotWith5Room, parkingLotWith10Room);
 
         //when
         for (int i = 0; i < 5; i++) {
