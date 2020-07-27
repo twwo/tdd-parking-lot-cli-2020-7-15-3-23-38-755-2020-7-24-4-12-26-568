@@ -5,8 +5,6 @@ import com.oocl.cultivation.ParkingLot;
 import com.oocl.cultivation.SuperSmartParkingBoy;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SuperSmartParkingBoyTest {
