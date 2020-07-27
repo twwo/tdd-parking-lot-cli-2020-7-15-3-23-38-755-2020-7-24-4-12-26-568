@@ -56,7 +56,7 @@ public class ParkingManagerTest {
     }
 
     @Test
-    void should_return_wrong_message_when_tell_parkingboy_to_park_the_car_given_car() {
+    void should_return_wrong_message_when_tell_parkingboy_to_park_the_car_given_no_ticket() {
         //given
         ParkingManager parkingManager = new ParkingManager(new ParkingBoy(new ParkingLot(1)));
 
