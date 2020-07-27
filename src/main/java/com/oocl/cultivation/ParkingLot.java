@@ -12,18 +12,7 @@ public class ParkingLot {
         this.capacity = capacity;
     }
 
-    public ParkingLot() {
-        this.capacity = 10;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    @Override
     public ReturnResult park(Car car) {
         if (parkingRooms.size() == capacity) {
             return new ReturnResult(null, FetchOrParkMessage.NO_PARKING_POSITION.toString());
@@ -33,6 +22,7 @@ public class ParkingLot {
         return new ReturnResult(ticket, FetchOrParkMessage.SUCCESS.toString());
     }
 
+    @Override
     public ReturnResult fetch(CarTicket ticket) {
         Car fetchedCar = parkingRooms.get(ticket);
         parkingRooms.remove(ticket, fetchedCar);
