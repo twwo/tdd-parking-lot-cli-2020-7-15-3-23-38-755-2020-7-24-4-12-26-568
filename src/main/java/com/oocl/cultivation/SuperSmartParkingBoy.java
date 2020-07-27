@@ -1,7 +1,5 @@
 package com.oocl.cultivation;
 
-import java.util.List;
-
 public class SuperSmartParkingBoy extends ParkingBoy{
     private ParkingLot maxRoomParkingLot;
 
@@ -14,13 +12,6 @@ public class SuperSmartParkingBoy extends ParkingBoy{
         maxRoomParkingLot = getMaxRemainRoomParkingLot();
     }
 
-    public ParkingLot getMaxRoomParkingLot() {
-        return maxRoomParkingLot;
-    }
-
-    public void setMaxRoomParkingLot(ParkingLot maxRoomParkingLot) {
-        this.maxRoomParkingLot = maxRoomParkingLot;
-    }
 
 
     @Override
